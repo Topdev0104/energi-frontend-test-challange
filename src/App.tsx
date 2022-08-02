@@ -14,6 +14,9 @@ import { Wallet } from "pages";
 // Import Web3
 import { EthereumContext } from "context/EthereumContext";
 
+//Import CSS
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
   const [provider, setProvider] = useState<any>(null);
   const [web3, setWeb3] = useState<any>(null);
@@ -29,11 +32,12 @@ function App() {
         setAccounts(accs);
         setCurrentAcc(accs[0]);
       });
+
       ethereum.on("chainChanged", (chainId: string) => {
-        if (chainId === "0x1") {
-          toast("Ethereum mainnet connected successfully");
+        if (chainId === "0x9b75") {
+          toast.success("Energi mainnet connected successfully");
         } else {
-          toast.error("Please connect to Ethereum Mainnet", {
+          toast.error("Please connect to Energi Mainnet", {
             theme: "dark",
           });
         }
